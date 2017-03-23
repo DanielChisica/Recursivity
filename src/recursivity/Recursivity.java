@@ -55,9 +55,9 @@ public class Recursivity {
         return Fibonacci(position - 1) + Fibonacci(position - 2);
     }
 
-    public static int[] testArray = {2, 3, 5, 10, 11, 15, 18, 29};
+    public static int[] testArray = {7, 2, 4, 3, 20, 10, 50, 9 ,1 ,13};
 
-    public int search(int[] array, int num, int min, int max) {
+    private int search(int[] array, int num, int min, int max) {
         int half = (max - min) / 2;
         if (array[min + half] == num) {
             return min + half;
@@ -69,6 +69,54 @@ public class Recursivity {
         return search(array, num, min, min + half);
     }
     
+    public int search(int[]array, int num){
+        return search(array, num, 0, array.length);
+    }
+    
+    public int findTheGreat(int[] array, int min, int max) {
+        int half = (max - min) / 2;
+        
+        if (array[half-min]>array[max-half]) {
+            return findTheGreat(array,half-min,max-half);
+        }
+        
+        else {
+            return findTheGreat(array, max-half, half-min);
+        }    
+    }
+    
+    public int arraySummary(int position, int[]array){
+        if(position==0){
+            return array[position];
+        }
+       
+       return arraySummary(array[position],array)+arraySummary(array[position-1],array);
+        
+        
+    }
+    
+   public void arrayinverted(String array[],int min, int max){
+       String temp; 
+       if(min<max){
+            temp=array[min];
+            array[min]=array[max];
+            array[max]=temp;
+        }
+       arrayinverted(array, min+1, max-1);
+   }
+    
+    public static String[] palindromo={"r","e","c","o","n","o","c","e","r"};
+    public boolean espalindromo(String[] palindromo1,int min,int max){
+      if(min<max){
+        //  return palindromo1[min]==palindromo[max] && palindromo1[palindromo1,min+1,max-1]==palindromo1[palindromo1,min+1,max-1];
+      }
+      return true;
+    }
+  
+    
+    
+   
+    
     public long fileSize(File f){
         long size=f.length();
         if (f.isDirectory()) {
@@ -79,5 +127,4 @@ public class Recursivity {
         }
         return size;
     }
-
 }

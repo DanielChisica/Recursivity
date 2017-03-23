@@ -6,6 +6,10 @@
 package recursivity;
 
 import java.io.File;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -16,6 +20,22 @@ import static org.junit.Assert.*;
 public class RecursivityTest {
     
     public RecursivityTest() {
+    }
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
     }
 
     /**
@@ -113,13 +133,73 @@ public class RecursivityTest {
     @Test
     public void testSearch() {
         System.out.println("search");
-        int[] array = null;
-        int num = 0;
+        int[] array ={6,7,8,9,10};
+        int num = 7;
+        Recursivity instance = new Recursivity();
+        int expResult = 1;
+        int result = instance.search(array, num);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+
+    /**
+     * Test of findTheGreat method, of class Recursivity.
+     */
+    @Test
+    public void testFindTheGreat() {
+        System.out.println("findTheGreat");
+        int[] array = {3,4,5,6,7};
+        int min = 0;
+        int max = 4;
+        Recursivity instance = new Recursivity();
+        int expResult = 7;
+        int result = instance.findTheGreat(array, min, max);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+
+    /**
+     * Test of arraySummary method, of class Recursivity.
+     */
+    @Test
+    public void testArraySummary() {
+        System.out.println("arraySummary");
+        int position = 3;
+        int[] array = {4,4,4,4,5};
+        Recursivity instance = new Recursivity();
+        int expResult = 16;
+        int result = instance.arraySummary(position, array);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+
+    /**
+     * Test of arrayinverted method, of class Recursivity.
+     */
+    @Test
+    public void testArrayinverted() {
+        System.out.println("arrayinverted");
+        String[] array = null;
         int min = 0;
         int max = 0;
         Recursivity instance = new Recursivity();
-        int expResult = 0;
-        int result = instance.search(array, num, min, max);
+        instance.arrayinverted(array, min, max);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of espalindromo method, of class Recursivity.
+     */
+    @Test
+    public void testEspalindromo() {
+        System.out.println("espalindromo");
+        String[] palindromo1 = null;
+        int min = 0;
+        int max = 0;
+        Recursivity instance = new Recursivity();
+        boolean expResult = false;
+        boolean result = instance.espalindromo(palindromo1, min, max);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -131,13 +211,13 @@ public class RecursivityTest {
     @Test
     public void testFileSize() {
         System.out.println("fileSize");
-        File f = new File("C:\\Users\\EAN\\Documents\\NetBeansProjects\\ArrayList");
+        File f = null;
         Recursivity instance = new Recursivity();
         long expResult = 0L;
         long result = instance.fileSize(f);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-    
+        fail("The test case is a prototype.");
     }
     
 }
